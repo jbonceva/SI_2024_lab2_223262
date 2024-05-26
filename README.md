@@ -45,5 +45,33 @@
         // Тест случај: валиден item со висок попуст и почнува со нула баркод
         assertTrue(SILab2.checkCart(items(item_high_price_discount_starting_with_zero), 1000));
     }
-    ```
+ ```
+### Тест случаи според Multiple Condition критериум
+Се проверуваат комбинациите FXX,TFX,TTF и TTT
+Преку тестовите, се креира артикл со соодветни карактеристики и се проверува дали функцијата враќа соодветен резултат во зависност од состојбата на артиклот.
 
+```java
+ @Test
+    void MultipleConditionTest() {
+        // Комбинација FXX: price <= 300
+        Item FXX = SILab2.createItem("Product1", "8929", 250, 0.1f);
+        assertFalse(FXX.getPrice() > 300);
+
+        // Комбинација TFX: price > 300, discount <= 0
+        Item TFX = SILab2.createItem("Product2", "8929", 350, 0);
+        assertTrue(TFX.getPrice() > 300);
+        assertFalse(TFX.getDiscount() > 0);
+
+        // Комбинација TTF: price > 300, discount > 0, barcode не започнува со '0'
+        Item TTF = SILab2.createItem("Product3", "6070", 400, 0.1f);
+        assertTrue(TTF.getPrice() > 300);
+        assertTrue(TTF.getDiscount() > 0);
+        assertNotEquals('0', TTF.getBarcode().charAt(0));
+
+        // Комбинација TTT: price > 300, discount > 0, barcode започнува со '0'
+        Item TTT = SILab2.createItem("Product4", "0876", 530, 0.1f);
+        assertTrue(TTT.getPrice() > 300);
+        assertTrue(TTT.getDiscount() > 0);
+        assertEquals('0', TTT.getBarcode().charAt(0));
+    }
+ ```
