@@ -1,7 +1,7 @@
 # Втора лабораториска вежба по Софтверско инженерство
 ## Јордана Бончева 223262
 ### Control Flow Graph
-![CFGraph drawio](https://github.com/jbonceva/SI_2024_lab2_223262/assets/166951079/59df56f7-7797-4655-8ee9-086a2a8d650d)
+![ControlFlowGraph drawio](https://github.com/jbonceva/SI_2024_lab2_223262/assets/166951079/f9895014-8d3d-4009-811f-27f00739610e)
 
 
 ### Цикломатска комплетност
